@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export class App extends Component {
   render() {
@@ -32,6 +32,9 @@ export class App2 extends Component {
           cfgafwkeuryoi8aw
         </p>
       </div>
+      
     );
   }
 }
+
+
