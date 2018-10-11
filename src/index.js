@@ -2,20 +2,34 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './index.css';
-import {App,App2} from './App';
 import {ListPage} from './listPage';
+import Cart from './cart';
 import registerServiceWorker from './registerServiceWorker';
-import { ProductPage } from './productPage';
+import ProductPage from './productPage';
+import {Provider } from 'react-redux';
+import { createStore, compose } from 'redux';
+import {reducer} from './reduxApp';
 
-ReactDOM.render((
+
+
+
+const enhancers = compose(
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+);
+const store = createStore(reducer, { productList: [] },enhancers);
+
+ ReactDOM.render((
+  <Provider store={store}>
     <BrowserRouter>
       <Switch>
+        <Route path = {"/list/product/cart"} component= {Cart} />
         <Route path = {"/list/product/:element"} component= {ProductPage} />
-        <Route path = {"/cos/:page2"} component= {App2} />
+      
         <Route path = {"/list"} component= {ListPage} />  
-        <Route component={App} />    
+     
       </Switch>
     </BrowserRouter>
+    </Provider>
   ), document.getElementById('root'))
 
-registerServiceWorker();
+registerServiceWorker(); 
