@@ -10,9 +10,6 @@ import {Provider } from 'react-redux';
 import { createStore, compose } from 'redux';
 import {reducer} from './reduxApp';
 
-
-
-
 const enhancers = compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f
 );
@@ -22,10 +19,10 @@ const store = createStore(reducer, { productList: [] },enhancers);
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route path = {"/list/product/cart"} component= {Cart} />
-        <Route path = {"/list/product/:element"} component= {ProductPage} />
+        <Route path = {"/product/cart"} component= {Cart} />
+        <Route path = {"/product/:element"} component= {ProductPage} />
       
-        <Route path = {"/list"} component= {ListPage} />  
+        <Route path = {""} component= {ListPage} />  
      
       </Switch>
     </BrowserRouter>

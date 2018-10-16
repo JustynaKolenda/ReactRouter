@@ -31,15 +31,20 @@ export class ListPage extends Component {
             funkcje map możemy użyć tylko przy tablicy inaczej poda błąd.
             Wszystkie atrybuty w tagu htmlowym to propsy w jsx.
             */
+           <span>Lista produktów:
+           <br/>
             <ul>{this.state.produkts.map((el,i) => {
                 return <li  key={i} >
                          <NavLink to={"/list/product/"+ el.id}>
                             {el.name}
-                            <b>{el.price}</b>
-                            {(el.images && el.images.length > 0) &&<img src={el.images[0].src} alt=""/>}
+                            <br/>
+                            <b>Cena: {el.price}</b>
+                            <br/>
+                            {(el.images && el.images.length > 0) &&<img src={el.images[0].src} alt="" className="imgProductList"/>}
                         </NavLink>
                         </li>
             })} </ul>
+            </span>
         );
     }
     /*
