@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../css/App.css';
 import {connect} from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import {mapDispatchToProps, mapStateToProps} from './reduxApp';
+import {mapDispatchToProps, mapStateToProps} from '../Redux/reduxApp';
 
 export class ProductPage extends Component {
     constructor() {
@@ -28,7 +28,7 @@ export class ProductPage extends Component {
                         this.props.addProduct(this.state.item.id)
                     }}> Dodaj do koszyka</button> 
                     <br/>
-                    <NavLink to={"/list/product/cart"}> Przejdź do koszyka </NavLink>
+                    <NavLink to={"/product/cart"}> Przejdź do koszyka </NavLink>
                 </div>
                 :
                 <b>Ładowanie</b>

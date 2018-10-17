@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../css/App.css';
 import {connect} from 'react-redux';
-import {mapDispatchToProps, mapStateToProps} from './reduxApp';
+import {mapDispatchToProps, mapStateToProps} from '../Redux/reduxApp';
 
 export class ProductCart extends Component {
     constructor() {

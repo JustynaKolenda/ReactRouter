@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../css/App.css';
 import {connect} from 'react-redux';
-import {mapStateToProps, mapDispatchToProps} from './reduxApp';
+import {mapStateToProps, mapDispatchToProps} from '../Redux/reduxApp';
 import {ProductCart} from './productCart';
+import { NavLink } from 'react-router-dom';
 
 class Cart extends Component {
     constructor() {
@@ -18,13 +19,17 @@ class Cart extends Component {
     render(){
         return(
                 <div>
+                    <NavLink to={""}> Powrót </NavLink>
                     {
                         this.props.productList.map((el,i)=>{
                             return( 
                                 <div key={i}>
-                                {console.log(this.props)}
                                     < ProductCart id={el.id}/>
-                                    <div>Sztuk w koszyku:  {el.ilosc}</div>
+                                    <div>Sztuk w koszyku:  {el.amount}</div>
+                                    <button onClick={()=>{
+                                        this.props.removeProduct(el.id)
+                                    }}> Usuń z koszyka
+                                    </button> 
                                 </div> 
 
                             )

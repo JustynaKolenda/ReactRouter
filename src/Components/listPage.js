@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../css/App.css';
 import { NavLink } from 'react-router-dom';
 
 export class ListPage extends Component {
@@ -35,7 +35,7 @@ export class ListPage extends Component {
            <br/>
             <ul>{this.state.produkts.map((el,i) => {
                 return <li  key={i} >
-                         <NavLink to={"/list/product/"+ el.id}>
+                         <NavLink to={"/product/"+ el.id}>
                             {el.name}
                             <br/>
                             <b>Cena: {el.price}</b>

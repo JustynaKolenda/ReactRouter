@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import './index.css';
-import {ListPage} from './listPage';
-import Cart from './cart';
+import './css/App.css';
+import {ListPage} from './Components/listPage';
+import Cart from './Components/cart';
 import registerServiceWorker from './registerServiceWorker';
-import ProductPage from './productPage';
+import ProductPage from './Components/productPage';
 import {Provider } from 'react-redux';
 import { createStore, compose } from 'redux';
-import {reducer} from './reduxApp';
+import {reducer} from './Redux/reduxApp';
 
 const enhancers = compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f
@@ -21,8 +21,7 @@ const store = createStore(reducer, { productList: [] },enhancers);
       <Switch>
         <Route path = {"/product/cart"} component= {Cart} />
         <Route path = {"/product/:element"} component= {ProductPage} />
-      
-        <Route path = {""} component= {ListPage} />  
+        <Route component= {ListPage} />  
      
       </Switch>
     </BrowserRouter>
